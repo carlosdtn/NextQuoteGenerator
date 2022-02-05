@@ -1,17 +1,12 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
+// import { useRouter } from 'next/router'
 
-const Context = React.createContext({})
+// const Context = React.createContext({})
 
-export function AuthorContextProvider({ children }) {
-  const [quotes, setQuotes] = useState([])
+// export function AuthorContextProvider({ children }) {
+//   const route = useRouter()
 
-  fetch('https://quote-garden.herokuapp.com/api/v3/quotes')
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-    })
+//   return <Context.Provider value={{}}>{children}</Context.Provider>
+// }
 
-  return <Context.Provider value={{}}>{children}</Context.Provider>
-}
-
-export default Context
+// export default Context

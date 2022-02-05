@@ -9,10 +9,10 @@ export default function Home() {
 
   return (
     <main className="h-full flex flex-col justify-center">
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-16">
         {isLoading ? quoteLoader() : <Quote>{`"${quote?.quoteText}"`}</Quote>}
       </div>
-      <div className="flex justify-center mt-16">
+      <div className="flex justify-center">
         <DetailButton purpose={quote?.quoteGenre}>
           {isLoading ? detailButtonLoader() : quote?.quoteAuthor}
         </DetailButton>
