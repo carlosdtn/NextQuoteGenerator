@@ -8,7 +8,6 @@ export default function RandomButton({ children }) {
   const { isReload, setIsReload } = useRandomQuote()
   const [isClicked, setIsClicked] = useState(false)
   const { author } = useRandomAuthor(isClicked)
-  console.log(author)
 
   const route = useRouter()
 

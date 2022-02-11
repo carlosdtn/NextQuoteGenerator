@@ -1,9 +1,9 @@
 export const quoteLoader = () => {
-  const responsiveSizes = 'text-md w-4/6 sm:w-3/4 md:w-4/6 lg:w-2/4'
+  const responsiveSizes = 'w-4/6 sm:w-3/4 md:w-4/6 lg:w-2/4'
   const fieldHeight = 'h-3 sm:h-4 lg:h-5'
   return (
     <div
-      className={`dark:bg-dm-skeleton flex flex-col animate-pulse space-y-3 sm:space-y-4 p-2 bg-gray-50 border-l-8 dark:border-dm-yellow border-yellow-200 pl-10 w-2/4 h-auto ${responsiveSizes}`}
+      className={`dark:bg-dm-skeleton flex flex-col animate-pulse space-y-3 sm:space-y-4 p-2 bg-gray-50 border-l-8 dark:border-dm-yellow border-yellow-200 pl-10 h-auto ${responsiveSizes}`}
     >
       <div className="flex flex-row space-x-1 sm:space-x-2">
         <div
