@@ -1,33 +1,35 @@
 import Load from 'components/Icons/Load'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
+import Router, { useRouter } from 'next/router'
+import useRandomQuote from 'hooks/useRandomQuote'
+import useRandomAuthor from 'hooks/useRandomAuthor'
 
-export default function RandomButton({ children, reloadStates }) {
-  const { isReload, setIsReload } = reloadStates
+export default function RandomButton({ children }) {
+  const { isReload, setIsReload } = useRandomQuote()
+  const [isClicked, setIsClicked] = useState(false)
+  const { author } = useRandomAuthor(isClicked)
+  console.log(author)
+
   const route = useRouter()
 
-  const ReloadQuote = () => {
-    setIsReload(!isReload)
-  }
-
-  const validateRoute = () => {
-    if (route.pathname.includes('/authors')) {
-      return true
+  const reloadQuote = () => {
+    if (route.pathname.includes(`/authors`)) {
+      Router.push(`/authors/${author}`)
+      setIsClicked(!isClicked)
     } else {
-      return false
+      setIsReload(!isReload)
     }
   }
 
   return (
     <button
-      onClick={ReloadQuote}
-      className={`group flex mt-4 mr-16 items-center space-x-1 ${
-        validateRoute() ? 'cursor-not-allowed' : 'cursor-pointer'
-      }`}
+      onClick={reloadQuote}
+      className="group flex mt-4 mr-9 sm:mr-16 items-center space-x-1"
     >
-      <span className="group-hover:text-amber-400 group-active:text-red-600 text-gray-500 transition duration-300">
+      <span className="dark:group-hover:text-dm-yellow dark:group-active:text-dm-orange group-hover:text-amber-400 group-active:text-red-600 text-gray-500 transition duration-300">
         {children}
       </span>
-      <Load className="w-5 h-5 fill-current text-gray-500 group-hover:text-amber-400 group-active:text-red-600 transition duration-300 group-hover:rotate-180" />
+      <Load className="dark:group-hover:text-dm-yellow dark:group-active:text-dm-orange w-5 h-5 fill-current text-gray-500 group-hover:text-amber-400 group-active:text-red-600 transition duration-300 group-hover:rotate-180" />
     </button>
   )
 }

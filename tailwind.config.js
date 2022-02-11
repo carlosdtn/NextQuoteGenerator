@@ -5,7 +5,16 @@ module.exports = {
     './skeleton/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'dm-black': '#191919',
+        'dm-blue': '#2D4263',
+        'dm-orange': '#C84B31',
+        'dm-yellow': '#ECDBBA',
+        'dm-skeleton': '#202020',
+      },
+    },
   },
   plugins: [],
+  darkMode: 'class',
 }

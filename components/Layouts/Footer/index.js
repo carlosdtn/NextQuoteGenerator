@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="flex justify-center mb-4 text-gray-500">
+    <footer className="dark:bg-dm-black flex justify-center pb-4 text-gray-500 text-xs sm:text-sm md:text-base">
       <span>
         Creado por {''}
         <a

@@ -8,7 +8,7 @@ export default function Home() {
   const { quote, isLoading } = useQuotes()
 
   return (
-    <main className="h-full flex flex-col justify-center">
+    <main className="dark:bg-dm-black h-full flex flex-col justify-center">
       <div className="flex justify-center mb-16">
         {isLoading ? quoteLoader() : <Quote>{`"${quote?.quoteText}"`}</Quote>}
       </div>

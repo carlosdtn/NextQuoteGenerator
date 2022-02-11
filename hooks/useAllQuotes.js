@@ -1,33 +1,29 @@
-import { useEffect, useState, useContext } from 'react'
-import ReloadContext from 'context/reloadContext'
-import useQuotes from 'hooks/useQuotes'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import useRandomQuote from 'hooks/useRandomQuote'
 
 export default function useAllQuotes() {
   const [quotes, setQuotes] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const { isReload } = useContext(ReloadContext)
-  const { quote } = useQuotes()
+  const { isReload } = useRandomQuote()
   const router = useRouter()
+  const { id } = router.query
 
-  useEffect(() => {
-    getAllQuotes()
-  }, [isReload, isLoading])
-  // ARREGLAR ERROR DE RENDER GAAAAAAAAAAAAAAAAAA
-
-  const getAllQuotes = () => {
-    fetch(
-      `https://quote-garden.herokuapp.com/api/v3/quotes?author=${router.query.id}`
-    )
+  const getAllQuotes = (id) => {
+    fetch(`https://quote-garden.herokuapp.com/api/v3/quotes?author=${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        console.log(router.query)
         setIsLoading(false)
         setQuotes(data?.data)
-        console.log(quote?.quoteAuthor)
       })
   }
+
+  useEffect(() => {
+    if (id) {
+      getAllQuotes(id)
+    }
+  }, [isReload, id])
+  // ARREGLAR ERROR DE RENDER GAAAAAAAAAAAAAAAAAA
 
   return { quotes, isLoading }
 }

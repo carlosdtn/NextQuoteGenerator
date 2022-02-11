@@ -1,10 +1,10 @@
-import { useEffect, useState, useContext } from 'react'
-import ReloadContext from 'context/reloadContext'
+import { useEffect, useState } from 'react'
+import useRandomQuote from 'hooks/useRandomQuote'
 
 export default function useQuotes() {
   const [quote, setQuote] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
-  const { isReload } = useContext(ReloadContext)
+  const { isReload } = useRandomQuote()
 
   useEffect(() => {
     makeRandomRequest()
