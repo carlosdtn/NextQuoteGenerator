@@ -17,7 +17,6 @@ export default function useQuotes() {
       .then((data) => {
         setIsLoading(false)
         setQuote(data.data[0])
-        console.log(data)
       })
   }
 
