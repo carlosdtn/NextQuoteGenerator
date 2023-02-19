@@ -13,7 +13,7 @@ export default function Home() {
         {isLoading ? quoteLoader() : <Quote>{`"${quote?.quoteText}"`}</Quote>}
       </div>
       <div className="flex justify-center">
-        <DetailButton purpose={quote?.quoteGenre}>
+        <DetailButton purpose={quote?.quoteGenre} disabled={isLoading}>
           {isLoading ? detailButtonLoader() : quote?.quoteAuthor}
         </DetailButton>
       </div>

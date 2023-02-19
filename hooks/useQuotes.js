@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import useRandomQuote from 'hooks/useRandomQuote'
+import { routes } from 'utilities/constants.js'
 
 export default function useQuotes() {
   const [quote, setQuote] = useState(null)
@@ -11,11 +12,12 @@ export default function useQuotes() {
   }, [isReload])
 
   const makeRandomRequest = () => {
-    fetch('https://quote-garden.herokuapp.com/api/v3/quotes/random')
+    fetch(routes.QTE_RANDOM)
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false)
         setQuote(data.data[0])
+        console.log(data)
       })
   }
 

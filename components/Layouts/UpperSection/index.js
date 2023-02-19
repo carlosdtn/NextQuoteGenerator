@@ -6,7 +6,7 @@ export default function UpperSection({ children }) {
     <div className="dark:bg-dm-black h-full flex flex-col">
       <div className="flex justify-between">
         <BiStateButton />
-        <RandomButton>aleatorio</RandomButton>
+        <RandomButton>random</RandomButton>
       </div>
       {children}
     </div>

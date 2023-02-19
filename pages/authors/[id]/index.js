@@ -29,8 +29,8 @@ export default function Authors() {
             <h1 className="dark:text-slate-400 w-3/4 text-base sm:text-xl font-semibold pl-2">
               {`${quotes[0]?.quoteAuthor} (${
                 quotes.length > 1
-                  ? `${quotes?.length} citas`
-                  : `${quotes?.length} cita`
+                  ? `${quotes?.length} quotes`
+                  : `${quotes?.length} quote`
               })`}
             </h1>
           )}

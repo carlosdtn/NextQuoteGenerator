@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="dark:bg-dm-black flex justify-center pb-4 text-gray-500 text-xs sm:text-sm md:text-base">
       <span>
-        Creado por {''}
+        Created by {''}
         <a
           href="https://github.com/carlosdtn"
           className="inline-block underline font-semibold"
